@@ -7,6 +7,97 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>teste</h1>
+    <div class="container">
+        <header class="header">
+            <div class="header__logo">
+                <picture>
+                    <source srcset="./assets/icon-house__desktop.png" media="(min-width: 1024px)" type="image/webp">
+                    <img class="header__icon" src="./assets/icon-house.png" alt="Icone de uma casa">
+                </picture>
+                <h1 class="header__title">
+                    ReactImóveis
+                </h1>
+            </div>
+            <nav class="header__menu">
+                <ul class="header__menu__list">
+                    <li class="header__menu__item">
+                        <a href="#" class="header__menu__link">
+                            <img class="header__menu__icon" src="./assets/icon-phone.png" alt="Icone Phone">
+                            <span class="header__menu__text">Contato</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="banner">
+            <div class="banner__content">
+                <span class="banner__disclaimer">Seu lar dos sonhos está aqui</span>
+                <h2 class="banner__title">
+                    Encontre a casa <br />dos seus sonhos
+                </h2>
+                <p class="banner__description">
+                    Descubra o imócel perfeito para você a sua família com a ReactImóveis.Temos as melhores opções do mercado
+                </p>
+                <ul class="banner__tags">
+                    <li class="banner__tag">Casas</li>
+                    <li class="banner__tag">Apartamentos</li>
+                    <li class="banner__tag">Coberturas</li>
+                    <li class="banner__tag">Terrenos</li>
+                </ul>
+            </div>
+            <div class="banner__image">
+                <picture>
+                    <source srcset="./assets/banner-desktop.png" media="(min-width: 1024px)" type="image/webp">
+                    <img src="./assets/banner-mobile.png" alt="Banner Image">
+                </picture>
+            </div>
+        </section>
+        <section class="numbers">
+            <div class="number">
+                <span class="number__value counter">1500</span>
+                <span class="number__description">Imóveis cadastrados</span>
+            </div>
+            <div class="number">
+                <span class="number__value counter">950</span>
+                <span class="number__description">Imóveis na praia</span>
+            </div>
+            <div class="number">
+                <span class="number__value counter">10</span>
+                <span class="number__description">Imóveis de luxo</span>
+            </div>
+            <div class="number">
+                <span class="number__value counter">150</span>
+                <span class="number__description">Imóveis cobertura</span>
+            </div>
+        </section>
+    </div>
+    <div class="wpp">
+        <a href="https://api.whatsapp.com/send?phone=5511999999999&text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20im%C3%B3veis%20dispon%C3%ADveis" target="_blank" class="wpp__link">
+            <img class="wpp__icon" src="./assets/icone-wpp.png" alt="Icone Whatsapp">
+        </a>
+    </div>
+
+    <script>
+        function animateCounter(target, element, duration = 1000) {
+            let start = 0;
+            let increment = target / (duration / 16); 
+
+            let interval = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    start = target;
+                    clearInterval(interval);
+                }
+                element.textContent = Math.floor(start) + "+";
+            }, 16);
+        }
+        window.onload = function() {
+            const counterElements = document.querySelectorAll(".counter");
+            counterElements.forEach(element => {
+                let target = parseInt(element.textContent.replace("+", ""));
+                animateCounter(target, element);
+            });
+        };
+    </script>
 </body>
 </html>
